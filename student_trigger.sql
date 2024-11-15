@@ -1,0 +1,9 @@
+set SERVEROUT ON;
+
+CREATE OR REPLACE TRIGGER update_timestamp
+BEFORE UPDATE OF grade ON STUDENTS
+FOR EACH ROW
+BEGIN
+    :NEW.last_updated := SYSDATE;
+END;
+/
